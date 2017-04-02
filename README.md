@@ -10,3 +10,6 @@
 - [] 自动拉群
 - [] 自动踢人
 - [] 判断朋友是否拉黑了自己
+
+# 技术栈
+微信机器人 [itchat](https://github.com/littlecodersh/ItChat)
