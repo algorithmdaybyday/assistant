@@ -7,14 +7,14 @@ groups = {}
 
 @itchat.msg_register(TEXT, isGroupChat=True)
 def group_reply_text(msg):
-    fromUserName = msg['FromUserName']
-    source = msg['ToUserName']
+    source = msg['FromUserName']
     if msg['Content'] == 'Hi':
-        groups[source] = source 
-    if groups.has_key(fromUserName):
-        for item in groups.keys():
-            if not item == fromUserName:
-                itchat.send(' %s say:\n%s' % (msg['ActualNickName'], msg['Content']), item)
+        groups[source] = source
+    else:
+        if groups.has_key(source):
+            for item in groups.keys():
+                if not item == source:
+                    itchat.send(' %s say:\n%s' % (msg['ActualNickName'], msg['Content']), item)
 
 @itchat.msg_register(PICTURE, isGroupChat=True)
 def group_reply_media(msg):
