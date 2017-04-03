@@ -13,3 +13,7 @@
 
 # 技术栈
 微信机器人 [itchat](https://github.com/littlecodersh/ItChat)
+
+# Contribute Guide
+请参考 [Contribute Guide](/CONTRIBUTE.md)
+
