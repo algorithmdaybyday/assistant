@@ -5,4 +5,4 @@
 
 - [英文版](https://google.github.io/styleguide/pyguide.html)
 
-- [中文版](http://zh-google-styleguide.readthedocs.io/en/latest/google-python-styleguide/python_style_rules/)
+- [中文版](http://zh-google-styleguide.readthedocs.io/en/latest/google-python-styleguide/)
