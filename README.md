@@ -17,3 +17,9 @@
 # Contribute Guide
 请参考 [Contribute Guide](/CONTRIBUTE.md)
 
+# Contributors 
+
+[@chucai](https://github.com/chucai)
+[@suisuiwudi](https://github.com/suisuiwudi)
+[@yuzixun](https://github.com/yuzixun)
+
