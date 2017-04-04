@@ -21,7 +21,7 @@ def group_reply_media(msg):
     source = msg['FromUserName']
     msg['Text'](msg['FileName'])
     if source in groups:
-        for item in groups:
+        for item in groups.keys():
             if not item == source:
                 itchat.send('@%s@%s'%('img' if msg['Type'] == 'Picture' else 'fil', msg['FileName']), item)
 
