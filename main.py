@@ -11,7 +11,7 @@ def group_reply_text(msg):
     if msg['Content'] == 'Hi':
         groups[source] = source
     else:
-        if groups.has_key(source):
+        if source in groups:
             for item in groups.keys():
                 if not item == source:
                     itchat.send(' %s say:\n%s' % (msg['ActualNickName'], msg['Content']), item)
@@ -20,7 +20,7 @@ def group_reply_text(msg):
 def group_reply_media(msg):
     source = msg['FromUserName']
     msg['Text'](msg['FileName'])
-    if groups.has_key(source):
+    if source in groups:
         for item in groups.keys():
             if not item == source:
                 itchat.send('@%s@%s'%('img' if msg['Type'] == 'Picture' else 'fil', msg['FileName']), item)
@@ -30,6 +30,12 @@ def download_png(msg):
     source = msg['FromUserName']
     msg['Text'](msg['FileName'])
     itchat.send(msg['FileName'], source)
+
+@itchat.msg_register(FRIENDS)
+def add_friend(msg):
+    if msg['RecommendInfo']['Content'] == 'Algorithm':
+        msg.user.verify()
+        itchat.send_msg('每日一题微信机器人为您服务', msg['RecommendInfo']['UserName'])
 
 itchat.auto_login(True)
 itchat.run()
