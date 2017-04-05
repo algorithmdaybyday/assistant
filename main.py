@@ -31,5 +31,11 @@ def download_png(msg):
     msg['Text'](msg['FileName'])
     itchat.send(msg['FileName'], source)
 
+@itchat.msg_register(FRIENDS)
+def add_friend(msg):
+    if msg['RecommendInfo']['Content'] == 'Algorithm':
+        msg.user.verify()
+        itchat.send_msg('每日一题微信机器人为您服务', msg['RecommendInfo']['UserName'])
+
 itchat.auto_login(True)
 itchat.run()
