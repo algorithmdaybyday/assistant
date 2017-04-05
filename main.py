@@ -11,7 +11,7 @@ def group_reply_text(msg):
     if msg['Content'] == 'Hi':
         groups[source] = source
     else:
-        if groups.has_key(source):
+        if source in groups:
             for item in groups.keys():
                 if not item == source:
                     itchat.send(' %s say:\n%s' % (msg['ActualNickName'], msg['Content']), item)
@@ -20,7 +20,7 @@ def group_reply_text(msg):
 def group_reply_media(msg):
     source = msg['FromUserName']
     msg['Text'](msg['FileName'])
-    if groups.has_key(source):
+    if source in groups:
         for item in groups.keys():
             if not item == source:
                 itchat.send('@%s@%s'%('img' if msg['Type'] == 'Picture' else 'fil', msg['FileName']), item)
