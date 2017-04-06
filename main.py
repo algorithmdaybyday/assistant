@@ -4,7 +4,7 @@ from wxpy import *
 
 bot = Bot()
 
-groups = wxpy.Group()
+groups = {} 
 
 logger = get_wechat_logger()
 logger.warning(u'這是一條WARNING等級的日志，你收到了嗎？')
