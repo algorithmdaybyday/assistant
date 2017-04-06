@@ -1,41 +1,35 @@
 #coding=utf-8
-import itchat
 import json
-from itchat.content import *
+from wxpy import *
 
-groups = {}
+bot = Bot()
 
-@itchat.msg_register(TEXT, isGroupChat=True)
-def group_reply_text(msg):
-    source = msg['FromUserName']
-    if msg['Content'] == 'Hi':
-        groups[source] = source
+groups = wxpy.Group()
+
+logger = get_wechat_logger()
+logger.warning(u'這是一條WARNING等級的日志，你收到了嗎？')
+
+@bot.register([my_friend, Group], TEXT)
+def auto_reply_text(msg):
+    if isinstance(msg.chat, Group) and not msg.is_at:
+        return 
     else:
-        if source in groups:
-            for item in groups.keys():
-                if not item == source:
-                    itchat.send(' %s say:\n%s' % (msg['ActualNickName'], msg['Content']), item)
+        return '收到信息: {} ({})'.format(msg.text, msg.type)
 
-@itchat.msg_register(PICTURE, isGroupChat=True)
-def group_reply_media(msg):
-    source = msg['FromUserName']
-    msg['Text'](msg['FileName'])
-    if source in groups:
-        for item in groups.keys():
-            if not item == source:
-                itchat.send('@%s@%s'%('img' if msg['Type'] == 'Picture' else 'fil', msg['FileName']), item)
+@bot.register([my_friend, Group], PICTURE)
+def auto_reply_pic(msg):
+    if isinstance(msg.chat, Group) and not msg.is_at:
+        return
+    else:
+        send_image('./QR.png',media_id=None)
 
-@itchat.msg_register(PICTURE, isGroupChat=False)
-def download_png(msg):
-    source = msg['FromUserName']
-    msg['Text'](msg['FileName'])
-    itchat.send(msg['FileName'], source)
-
-@itchat.msg_register(FRIENDS)
+@bot.register(msg_types=FRIENDS)
 def add_friend(msg):
-    if msg['RecommendInfo']['Content'] == 'Algorithm':
-        msg.user.verify()
-        itchat.send_msg('每日一题微信机器人为您服务', msg['RecommendInfo']['UserName'])
+    if 'Algorithm' in msg.text.lower():
+        new_friend = bot.accept_friend(msg.card)
+        new_friend.send(u'每日一题微信机器人为您服务', msg.sender)
 
-itchat.auto_login(True)
-itchat.run()
+bot.start()
+
+#embed()
+bot.join()
