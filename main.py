@@ -7,9 +7,8 @@ from wxpy import *
 # 声明成员
 
 bot = Bot()
-Friend = bot.friends().search(u'东东')[0]
-group_geek = bot.groups().search(u'Geek小组')[0]
-
+# Friends_test = bot.friends().search(u'东东')[0]
+group_geek = bot.groups().search(u'Geek')[0]
 
 #  logger = get_wechat_logger()
 #  logger.warning(u'這是一條WARNING等級的日志，你收到了嗎？')
