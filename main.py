@@ -8,7 +8,7 @@ from wxpy import *
 
 bot = Bot()
 # Friends_test = bot.friends().search('东东')[0]
-group_geek = bot.groups().search('算法第6群')[0]
+group_geek = bot.groups().search('每日一题6群')[0]
 
 #  logger = get_wechat_logger()
 #  logger.warning('這是一條WARNING等級的日志，你收到了嗎？')
@@ -52,7 +52,46 @@ def add_group_member(msg):
     if '申请入群' in msg.text.lower():
         group_geek.add_members(msg.sender, use_invitation=True)
 
-bot.start()
+'''
+def createDaemon():
+    # fork 进程
+    try:
+        if os.fork() > 0: os._exit(0)
+    except OSError:
+        print('fork #1 failed: %d (%s)' % (error.errno.strerror))
+        os._exit(1)
+    os.chdir('/')
+    os.setsid()
+    os.umask(0)
+    try:
+        pid = os.fork()
+        if pid > 0:
+            print('Daemon PID %d' % pid)
+            os._exit(0)
+    except OSError:
+        print('fork #2 failed: %d (%s)' % (error.errno.strerror))
+        os._exit(1)
+    # 重定向标准IO
+    sys.stdout.flush()
+    sys.stderr.flush()
+    si = open("/dev/null", 'r')
+    so = open("/dev/null", 'a+')
+    se = open("/dev/null", 'wb', buffering=0)
+    os.dup2(si.fileno(), sys.stdin.fileno())
+    os.dup2(so.fileno(), sys.stdout.fileno())
+    os.dup2(se.fileno(), sys.stderr.fileno())
 
+    # 在子进程中执行代码
+    bot.start()
+    bot.join()
+
+if __name__ == '__main__':
+    if platform.system() == 'Linux':
+        createDaemon()
+    else:
+        os._exit(0)
+'''
+
+bot.start()
 #embed()
 bot.join()  # 堵塞线程
