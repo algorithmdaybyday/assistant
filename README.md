@@ -13,11 +13,12 @@
 
 # 技术栈
 微信机器人 [itchat](https://github.com/littlecodersh/ItChat)
+微信机器人/优雅的微信个人号API [wxpy](https://github.com/youfou/wxpy)
 
 # Contribute Guide
 请参考 [Contribute Guide](/CONTRIBUTE.md)
 
-# Contributors 
+# Contributors
 
 [@chucai](https://github.com/chucai)
 [@suisuiwudi](https://github.com/suisuiwudi)
