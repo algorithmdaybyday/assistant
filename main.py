@@ -33,7 +33,7 @@ def auto_reply_pic(msg):
     if isinstance(msg.chat, Group) and not msg.is_at:
         return
     else:
-        send_image('./QR.png',media_id=None)
+        msg.reply_image('./th.jpg', media_id=None)
 
 
 # 自动添加好友
