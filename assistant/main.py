@@ -19,7 +19,7 @@ group_geek = bot.groups().search('每日一题6群')[0]
 @bot.register([Friend, Group], TEXT)
 def auto_reply_text(msg):
     if isinstance(msg.chat, Group) and not msg.is_at:
-        return 
+        return
     else:
         return '收到信息: {} ({})'.format(msg.text, msg.type)
         if '加群' in msg.text.lower():
@@ -33,7 +33,7 @@ def auto_reply_pic(msg):
     if isinstance(msg.chat, Group) and not msg.is_at:
         return
     else:
-        msg.reply_image('./th.jpg', media_id=None)
+        msg.reply_image('./assets/th.jpg', media_id=None)
 
 
 # 自动添加好友
