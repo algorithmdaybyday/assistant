@@ -2,6 +2,15 @@
 
 每日一题群的机器人助理, 实现群管理的自动化。
 
+# Getting Started
+
+```bash
+$ git clone https://github.com/algorithmdaybyday/assistant.git
+$ cd assistant
+$ make
+$ python3 -m assistant
+```
+
 # TODO list
 
 - [ ] 线程支持
