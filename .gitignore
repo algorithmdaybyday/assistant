@@ -2,3 +2,5 @@ itchat.pkl
 QR.png
 
 assistant/__pycache__/
+assistant/wxpy.pkl
+assistant/nohup.out
