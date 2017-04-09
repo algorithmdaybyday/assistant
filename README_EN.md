@@ -26,4 +26,4 @@ Please refer to [Contribution Guide](https://github.com/ctfu/assistant/blob/mast
 
 ## Contributors
 [@chucai](https://github.com/chucai) [@suisuiwudi](https://github.com/suisuiwudi)
-[@yuzixun](https://github.com/yuzixun)
+[@yuzixun](https://github.com/yuzixun) [@ctfu](https://github.com/ctfu)
