@@ -13,17 +13,19 @@ bot = Bot(cache_path=True, console_qr=True)
 global groups
 global group
 global group2
+global group3
 groups = bot.groups().search('算法')
 group = bot.groups().search("每日一题算法6群")[0]
 group2 = bot.groups().search("每日一题中转站")[0]
+group3 = bot.groups().search("每日一题灌水群")[0]
 
 #  logger = get_wechat_logger()
 #  logger.warning('這是一條WARNING等級的日志，你收到了嗎？')
 
 # 同步微信群的消息
-@bot.register(groups, except_self=False)
-def sync_my_groups(msg):
-    sync_message_in_groups(msg, groups)
+# @bot.register(groups, except_self=False)
+# def sync_my_groups(msg):
+    # sync_message_in_groups(msg, groups)
 
 # 回复群里@到和好友信息
 @bot.register([Friend, Group], TEXT)
@@ -61,6 +63,8 @@ def add_friend(msg):
 def add_group_member(msg):
     if '刷题' in msg.text.lower() or '加群' in msg.text.lower():
         group.add_members(msg.sender, use_invitation=True)
+    if '灌水' in msg.text.lower():
+        group3.add_members(msg.sender, use_invitation=True)
 
 def send_message_to_group():
     message = '''@所有人:
@@ -71,10 +75,10 @@ def send_message_to_group():
     '''
     group2.send(message)
     global timer
-    timer = threading.Timer(3600, send_message_to_group)
+    timer = threading.Timer(10800, send_message_to_group)
     timer.start()
 
-timer = threading.Timer(3600, send_message_to_group)
+timer = threading.Timer(7200, send_message_to_group)
 timer.start()
 
 bot.start()
