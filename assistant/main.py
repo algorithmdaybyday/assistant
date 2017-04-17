@@ -3,6 +3,7 @@
 import json
 from wxpy import *
 import threading
+from config import global_var
 import time
 
 
@@ -14,11 +15,25 @@ global groups
 global group
 global group2
 global group3
-groups = bot.groups().search('算法')
-group = bot.groups().search("每日一题算法6群")[0]
-group2 = bot.groups().search("每日一题中转站")[0]
-group3 = bot.groups().search("每日一题灌水群")[0]
+groups = bot.groups().search(global_var.commonName)
 
+#加入安全检测
+res = bot.groups().search(global_var.learnGroup)#刷题群
+if len(res)>0:
+    group = res[0]
+
+res = bot.groups().search(global_var.transferGroup)#中转站
+if len(res)>0:
+    group2 = res[0]
+
+res = bot.groups().search(global_var.gossipGroup)#灌水群
+if len(res)>0:
+    group3 = res[0]
+# group = bot.groups().search("每日一题算法6群")[0]
+# group2 = bot.groups().search("每日一题中转站")[0]
+# group3 = bot.groups().search("每日一题灌水群")[0]
+
+#
 #  logger = get_wechat_logger()
 #  logger.warning('這是一條WARNING等級的日志，你收到了嗎？')
 
