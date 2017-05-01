@@ -14,10 +14,12 @@ global groups
 global group
 global group2
 global group3
+global group4
 groups = bot.groups().search('算法')
-group = bot.groups().search("每日一题算法6群")[0]
+group = bot.groups().search("每日一题算法7群")[0]
 group2 = bot.groups().search("每日一题中转站")[0]
 group3 = bot.groups().search("每日一题灌水群")[0]
+group4 = bot.groups().search("清单")[0]
 
 #  logger = get_wechat_logger()
 #  logger.warning('這是一條WARNING等級的日志，你收到了嗎？')
@@ -65,6 +67,8 @@ def add_group_member(msg):
         group.add_members(msg.sender, use_invitation=True)
     if '灌水' in msg.text.lower():
         group3.add_members(msg.sender, use_invitation=True)
+    if '清单' in msg.text.lower():
+        group4.add_members(msg.sender, use_invitation=True)
 
 def send_message_to_group():
     message = '''@所有人:
