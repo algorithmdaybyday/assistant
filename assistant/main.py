@@ -16,11 +16,11 @@ global group
 global group2
 global group3
 global group4
-groups = bot.groups().search('算法')
-group = bot.groups().search("每日一题算法7群")[0]
-group2 = bot.groups().search("每日一题中转站")[0]
-group3 = bot.groups().search("每日一题灌水群")[0]
-group4 = bot.groups().search("清单")[0]
+# groups = bot.groups().search('算法')
+# group = bot.groups().search("每日一题算法7群")[0]
+# group2 = bot.groups().search("每日一题中转站")[0]
+# group3 = bot.groups().search("每日一题灌水群")[0]
+# group4 = bot.groups().search("清单")[0]
 
 groups = bot.groups().search(global_var.commonName)
 
@@ -36,9 +36,10 @@ if len(res)>0:
 res = bot.groups().search(global_var.gossipGroup)#灌水群
 if len(res)>0:
     group3 = res[0]
-# group = bot.groups().search("每日一题算法6群")[0]
-# group2 = bot.groups().search("每日一题中转站")[0]
-# group3 = bot.groups().search("每日一题灌水群")[0]
+
+res = bot.groups().search(global_var.listGroup)#清单群
+if len(res)>0:
+    group4 = res[0]
 
 #
 #  logger = get_wechat_logger()

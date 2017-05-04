@@ -6,6 +6,7 @@ class global_var:
     groupNames=[""]
 
     commonName = '算法'
-    learnGroup = '每日一题算法6群'
+    learnGroup = '每日一题算法7群'
     transferGroup = '每日一题中转站'
     gossipGroup = '每日一题灌水群'
+    listGroup = '清单'
