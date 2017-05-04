@@ -21,6 +21,7 @@ group = bot.groups().search("每日一题算法7群")[0]
 group2 = bot.groups().search("每日一题中转站")[0]
 group3 = bot.groups().search("每日一题灌水群")[0]
 group4 = bot.groups().search("清单")[0]
+
 groups = bot.groups().search(global_var.commonName)
 
 #加入安全检测
